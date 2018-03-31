@@ -85,6 +85,7 @@ $(NAME) : $(OBJ)
 clean:
 	make -C libft/ clean
 	/bin/rm -f $(SRCS2)
+	/bin/rm -f *.o
 
 fclean: clean
 	rm -f libft/libft.a
