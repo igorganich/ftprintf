@@ -6,7 +6,7 @@
 /*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/01 02:50:22 by iganich           #+#    #+#             */
-/*   Updated: 2018/04/01 06:10:44 by iganich          ###   ########.fr       */
+/*   Updated: 2018/04/01 06:11:31 by iganich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ ssize_t		ft_printf_func_wchar(char **format, va_list *args, t_prs *parser)
 	if (parser->wid_present && !parser->minus)
 		ft_printf_func_wid_spec(charactlen, parser->wid,
 				parser->zero ? '0' : ' ');
-	ft_putwchar_fd(charact, 0);
+	ft_putwchar_fd(charact, STDOUT_FILENO);
 	if (parser->wid_present && parser->minus)
 		ft_printf_func_wid_spec(charactlen, parser->wid,
 				parser->zero ? '0' : ' ');
