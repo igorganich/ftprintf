@@ -6,7 +6,7 @@
 /*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/01 03:05:41 by iganich           #+#    #+#             */
-/*   Updated: 2018/04/01 03:05:43 by iganich          ###   ########.fr       */
+/*   Updated: 2018/04/01 05:15:41 by iganich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ ssize_t	ft_printf_numberandstring(uintmax_t number,
 	else if (parser->wid_present)
 		parser->wid -= ft_strlen(string);
 	ft_putstr(string);
-	return (ft_printf_func_uint(number, parser, base, NULL) + cut);
+	cut = (ft_printf_func_uint(number, parser, base, NULL) + cut);
+	return (ft_max_of_two(cut, len));
 }

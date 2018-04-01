@@ -6,7 +6,7 @@
 /*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/01 02:44:26 by iganich           #+#    #+#             */
-/*   Updated: 2018/04/01 03:17:01 by iganich          ###   ########.fr       */
+/*   Updated: 2018/04/01 05:49:49 by iganich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@ static void	ft_putnbrbase_fd(uintmax_t nbr, char *base, int fd)
 static void	putnumber(uintmax_t number, char *base,
 						t_prs *parser, unsigned *lens)
 {
-	if (parser->grid && ft_strlen(base) != 8)
+	int flag;
+
+	flag = 0;
+	if (parser->grid && ft_strlen(base) != 8 && (!parser->tochka_present
+				|| parser->zero) && (flag = 1))
 		lens[0] += 2;
 	if (parser->tochka_present)
 		ft_printf_func_wid_spec(lens[0], parser->tochka, '0');
@@ -46,7 +50,8 @@ static void	putnumber(uintmax_t number, char *base,
 	else
 		ft_putnbrbase_fd(number, base, STDOUT_FILENO);
 	if (parser->grid && parser->tochka_present && ft_strlen(base) != 8)
-		lens[1] -= 2;
+		if (flag == 1 && parser->zero)
+			lens[1] -= 2;
 }
 
 static int	maximum(int a, int b)
