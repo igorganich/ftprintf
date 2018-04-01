@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsers.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/01 02:33:18 by iganich           #+#    #+#             */
+/*   Updated: 2018/04/01 02:39:48 by iganich          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft/includes/libft.h"
 #include <stdarg.h>
 #include "../headers/handle_funcs.h"
 
-
-void	ft_printf_check_special(char **format, t_prs *parser)
+void		ft_printf_check_special(char **format, t_prs *parser)
 {
 	int flag;
 
@@ -33,10 +44,10 @@ static int	atoi_simple(char **format)
 	sum = 0;
 	while (ft_isdigit(**format))
 		sum = (*(*format)++ - '0') + sum * 10;
-	return sum;
+	return (sum);
 }
 
-void	ft_printf_check_wid(char **format, va_list *list, t_prs *parser)
+void		ft_printf_check_wid(char **format, va_list *list, t_prs *parser)
 {
 	int	fromarg;
 
@@ -63,7 +74,7 @@ void	ft_printf_check_wid(char **format, va_list *list, t_prs *parser)
 	}
 }
 
-void	ft_printf_check_tochka(char **format, va_list *list, t_prs *parser)
+void		ft_printf_check_tochka(char **format, va_list *list, t_prs *parser)
 {
 	int tochkavar;
 
@@ -89,13 +100,12 @@ void	ft_printf_check_tochka(char **format, va_list *list, t_prs *parser)
 	}
 }
 
-void	ft_printf_check_len(char **format, t_prs *parser)
+void		ft_printf_check_len(char **format, t_prs *parser)
 {
 	if (**format == 'h' && *(*format + 1) == 'h')
 	{
 		parser->len = key_hh;
 		return ((void)(*format += 2));
-
 	}
 	else if (**format == 'l' && *(*format + 1) == 'l')
 	{

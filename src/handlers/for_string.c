@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   for_string.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/01 02:57:04 by iganich           #+#    #+#             */
+/*   Updated: 2018/04/01 03:00:21 by iganich          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../headers/handle_funcs.h"
 #include "../../headers/utils.h"
 #include "../../libft/includes/libft.h"
 #include <wchar.h>
 
-static	int	maximum (int a, int b)
+static int		maximum(int a, int b)
 {
 	if (a > b)
-		return a;
+		return (a);
 	return (b);
 }
 
@@ -20,9 +32,10 @@ static size_t	custom_nstrlen(const char *str, size_t maxlen)
 	return (i);
 }
 
-ssize_t		ft_printf_func_string(char **format, va_list *args, t_prs *parser)
+ssize_t			ft_printf_func_string(char **format,
+				va_list *args, t_prs *parser)
 {
-	int	len;
+	int		len;
 	char	*string;
 
 	if (parser->len == key_l)

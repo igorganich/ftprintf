@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/01 02:30:29 by iganich           #+#    #+#             */
+/*   Updated: 2018/04/01 02:32:53 by iganich          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdarg.h>
 #include "../libft/libft.h"
 #include "../headers/ft_printf.h"
 #include "../headers/handle_funcs.h"
 #include "../headers/parsers.h"
 #include <unistd.h>
-#include <stdio.h>//sdsdfsd
 
 static int	handleit(char **format, va_list *args, t_prs *parser)
 {
@@ -19,7 +30,7 @@ static int	handleit(char **format, va_list *args, t_prs *parser)
 	ft_printf_check_len(format, parser);
 	if (**format == '\0')
 		return (0);
-	myfunc = ft_printf_get_func(**format, 1);// handle it mb
+	myfunc = ft_printf_get_func(**format, 1);
 	if (myfunc == NULL)
 		myfunc = ft_printf_func_null;
 	count = myfunc(format, args, parser);
@@ -27,18 +38,18 @@ static int	handleit(char **format, va_list *args, t_prs *parser)
 	return (count);
 }
 
-static int			goprint(const char *format, va_list *args, int count)
+static int	goprint(const char *format, va_list *args, int count)
 {
 	char	*next;
 	t_prs	parser;
-	int	len;
+	int		len;
 
 	next = ft_strchr(format, '%');
 	if (*format == '\0')
 		return (count);
 	if (next == NULL)
 	{
-		ft_putnstr_fd(format, ft_strlen(format),STDOUT_FILENO);
+		ft_putnstr_fd(format, ft_strlen(format), STDOUT_FILENO);
 		return (count + ft_strlen(format));
 	}
 	else if (next > format)
@@ -56,10 +67,10 @@ static int			goprint(const char *format, va_list *args, int count)
 	}
 }
 
-int				ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list	current_arg;
-	int	count;
+	int		count;
 
 	va_start(current_arg, format);
 	count = goprint(format, &current_arg, 0);

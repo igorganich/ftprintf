@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cor_func.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/01 02:40:10 by iganich           #+#    #+#             */
+/*   Updated: 2018/04/01 02:41:17 by iganich          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../headers/handle_funcs.h"
 #include "../../libft/includes/libft.h"
 
@@ -25,8 +37,8 @@ static void	create_funcs(t_func *handlers)
 
 t_func		ft_printf_get_func(char x, int flag)
 {
-	static t_func *funcs = NULL;
-	t_func	buffer;
+	static t_func	*funcs = NULL;
+	t_func			buffer;
 
 	ft_bzero(&buffer, sizeof(buffer));
 	if (flag == 1)

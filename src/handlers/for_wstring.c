@@ -1,17 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   for_wstring.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/01 03:00:25 by iganich           #+#    #+#             */
+/*   Updated: 2018/04/01 03:02:36 by iganich          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdarg.h>
 #include "../../libft/includes/libft.h"
 #include "../../headers/ft_printf.h"
 #include "../../headers/handle_funcs.h"
 #include "../../headers/utils.h"
 
-static int	maximum(int a, int b)
+static int		maximum(int a, int b)
 {
 	if (a > b)
 		return (a);
 	return (b);
 }
-
-
 
 static size_t	get_len(wchar_t *string, int tochka, size_t count)
 {
@@ -50,7 +60,8 @@ static size_t	ft_wstrlen(wchar_t *str)
 	return (count);
 }
 
-ssize_t			ft_printf_func_wstring(char **format, va_list *args, t_prs *parser)
+ssize_t			ft_printf_func_wstring(char **format
+		, va_list *args, t_prs *parser)
 {
 	size_t	len;
 	wchar_t	*string;

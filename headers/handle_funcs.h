@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_funcs.h                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/01 03:09:13 by iganich           #+#    #+#             */
+/*   Updated: 2018/04/01 03:10:43 by iganich          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef HANDLE_FUNCS_H
 # define HANDLE_FUNCS_H
 # include <stdarg.h>
@@ -43,8 +55,8 @@ ssize_t				ft_printf_func_octal(char **format, va_list *args,
 		t_prs *parser);
 ssize_t				ft_printf_func_unsigned(char **format, va_list *args,
 		t_prs *parser);
-ssize_t                         ft_printf_func_hex_big(char **format, va_list *args,
-                t_prs *parser);
+ssize_t				ft_printf_func_hex_big(char **format, va_list *args,
+					t_prs *parser);
 ssize_t				ft_printf_func_hex_small(char **format, va_list *args,
 		t_prs *parser);
 ssize_t				ft_printf_func_char(char **format, va_list *args,
@@ -62,7 +74,6 @@ ssize_t				ft_printf_func_charswritten(char **format, va_list *a,
 ssize_t				ft_printf_func_uint(uintmax_t nbr, t_prs *parser, char *b,
 		char *p);
 typedef ssize_t		(*t_func)(char**, va_list*, t_prs*);
-t_func			ft_printf_get_func(char c, int flag);
+t_func				ft_printf_get_func(char c, int flag);
 
 #endif
-

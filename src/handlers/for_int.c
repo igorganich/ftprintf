@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   for_int.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/01 02:54:39 by iganich           #+#    #+#             */
+/*   Updated: 2018/04/01 02:55:47 by iganich          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdarg.h>
 #include "../../libft/includes/libft.h"
 #include "../../headers/ft_printf.h"
@@ -49,7 +61,8 @@ ssize_t			ft_printf_func_int(char **format, va_list *args, t_prs *parser)
 			string = " ";
 		else
 			string = "";
-		return (ft_printf_numberandstring(number, "0123456789", parser, string));
+		return (ft_printf_numberandstring(number, "0123456789",
+					parser, string));
 	}
 	else
 		return (ft_printf_func_uint(number, parser, "0123456789", NULL));

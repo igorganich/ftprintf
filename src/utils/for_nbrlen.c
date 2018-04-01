@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   for_nbrlen.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/01 03:04:58 by iganich           #+#    #+#             */
+/*   Updated: 2018/04/01 03:05:28 by iganich          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <inttypes.h>
 #include "../../libft/includes/libft.h"
 #include "../../headers/handle_funcs.h"
 #include "../../headers/utils.h"
 
-static int	maximum(int a, int b)
+static int		maximum(int a, int b)
 {
 	if (a > b)
 		return (a);

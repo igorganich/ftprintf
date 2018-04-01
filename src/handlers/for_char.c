@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   for_char.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/01 02:41:27 by iganich           #+#    #+#             */
+/*   Updated: 2018/04/01 03:19:49 by iganich          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdarg.h>
 #include "../../libft/includes/libft.h"
 #include "../../headers/ft_printf.h"
@@ -21,6 +33,6 @@ ssize_t	ft_printf_func_char(char **format, va_list *args, t_prs *parser)
 		ft_putchar(va_arg(*args, int));
 		if (parser->wid_present && parser->minus)
 			ft_printf_func_wid_spec(1, parser->wid, ' ');
-		returner(parser);//make returner in header
+		RETURNER(parser);
 	}
 }

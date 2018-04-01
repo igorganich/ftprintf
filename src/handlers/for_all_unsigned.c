@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   for_all_unsigned.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/01 02:44:26 by iganich           #+#    #+#             */
+/*   Updated: 2018/04/01 03:17:01 by iganich          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdint.h>
 #include <sys/types.h>
 #include "../../libft/includes/libft.h"
 #include "../../headers/ft_printf.h"
 #include "../../headers/handle_funcs.h"
 #include "../../headers/utils.h"
-#include <stdio.h>
 
 static void	ft_putnbrbase_fd_inner(uintmax_t nbr, char *base, size_t baselen,
 				int fd)
@@ -23,7 +34,8 @@ static void	ft_putnbrbase_fd(uintmax_t nbr, char *base, int fd)
 	ft_putnbrbase_fd_inner(nbr, base, ft_strlen(base), fd);
 }
 
-static void	putnumber(uintmax_t number, char *base, t_prs *parser, unsigned *lens)
+static void	putnumber(uintmax_t number, char *base,
+						t_prs *parser, unsigned *lens)
 {
 	if (parser->grid && ft_strlen(base) != 8)
 		lens[0] += 2;
@@ -69,5 +81,6 @@ ssize_t		ft_printf_func_uint(uintmax_t number,
 	putnumber(number, base, parser, lens);
 	if (parser->wid_present && parser->minus)
 		ft_printf_func_wid_spec(lens[1], parser->wid, ' ');
-	return (parser->wid_present ? (unsigned int)maximum(lens[1], parser->wid) : lens[1]);
+	return (parser->wid_present ? (unsigned int)
+			maximum(lens[1], parser->wid) : lens[1]);
 }
