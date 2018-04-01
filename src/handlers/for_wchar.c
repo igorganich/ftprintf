@@ -6,7 +6,7 @@
 /*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/01 02:50:22 by iganich           #+#    #+#             */
-/*   Updated: 2018/04/01 02:51:51 by iganich          ###   ########.fr       */
+/*   Updated: 2018/04/01 04:19:28 by iganich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 static void	ft_putwchar_fd(wchar_t chr, int fd)
 {
+	ft_putnbr_fd(int(chr), STDOUT_FILENO);
 	if (chr <= 0x7F)
 		ft_putchar_fd(chr, fd);
 	else if (chr <= 0x7FF)
@@ -56,13 +57,13 @@ ssize_t		ft_printf_func_wchar(char **format, va_list *args, t_prs *parser)
 
 	(void)format;
 	charact = (wchar_t)va_arg(*args, wint_t);
-	if (charact <= 127)
+	if (charact <= 0x7F)
 		charactlen = 1;
-	else if (charact <= 2047)
+	else if (charact <= 0x7FF)
 		charactlen = 2;
-	else if (charact <= 65535)
+	else if (charact <= 0xFFFF)
 		charactlen = 3;
-	else if (charact <= 1114111)
+	else if (charact <= 0x10FFFF)
 		charactlen = 4;
 	else
 		charactlen = 0;
