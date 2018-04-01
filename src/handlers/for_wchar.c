@@ -6,7 +6,7 @@
 /*   By: iganich <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/01 02:50:22 by iganich           #+#    #+#             */
-/*   Updated: 2018/04/01 04:23:28 by iganich          ###   ########.fr       */
+/*   Updated: 2018/04/01 04:29:55 by iganich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@
 #include "../../headers/handle_funcs.h"
 #include "../../headers/utils.h"
 #include <unistd.h>
-#include <stdio.h>//asdasdads
 
 static void	ft_putwchar_fd(wchar_t chr, int fd)
 {
-	ft_printf(" number is %d\n", (int)(chr));
 	if (chr <= 0x7F)
 		ft_putchar_fd(chr, fd);
 	else if (chr <= 0x7FF)
